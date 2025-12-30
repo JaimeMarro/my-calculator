@@ -1,0 +1,42 @@
+﻿@model Calculadora_Web.Models.CalculadoraViewModel
+
+@{
+    ViewData["Title"] = "Calculadora";
+}
+<form asp-action="Index" method="post">
+
+    <!-- Estos (type="hidden" son ocultos, el usuario nos los ve, pero lo que hace es mantener en la memoria el valor actual de nuestras mdoelos) -->
+    <input type="hidden" asp-for="PrimerValor" />
+    <input type="hidden" asp-for="Operador" />
+    <input type="hidden" asp-for="ValorActual" />
+    <input type="hidden" asp-for="OperacionCompleta" />
+
+    <div class="calculadora">
+
+        <div class="pantalla">
+            <div class="operacionCompleta">@Model.OperacionCompleta</div>
+            <div class="valorActual">@Model.ValorActual</div>
+        </div>  
+
+        <button class="btn btn-C btn-AC" type="submit" name="BotonPresionado" value="AC">AC</button>
+        <button class="btn btn-C" type="submit" name="BotonPresionado" value="C">C</button>
+        <button class="btn btn-operador" type="submit" name="BotonPresionado" value="÷">÷</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="7">7</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="8">8</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="9">9</button>
+        <button class="btn btn-operador" type="submit" name="BotonPresionado" value="x">×</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="4">4</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="5">5</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="6">6</button>
+        <button class="btn btn-operador" type="submit" name="BotonPresionado" value="-">-</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="1">1</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="2">2</button>
+        <button class="btn" type="submit" name="BotonPresionado" value="3">3</button>
+        <button class="btn btn-operador" type="submit" name="BotonPresionado" value="+">+</button>
+        <button class="btn btn-cero" type="submit" name="BotonPresionado" value="0">0</button>
+        <button class="btn" type="submit" name="BotonPresionado" value=".">.</button>
+        <button class="btn btn-igual    " type="submit" name="BotonPresionado" value="=">=</button>
+        
+
+    </div>
+</form>

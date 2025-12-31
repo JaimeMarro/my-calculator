@@ -40,7 +40,7 @@ namespace Calculadora_Web.Controllers
                 if (model.BotonPresionado == "1" || model.BotonPresionado == "2" || model.BotonPresionado == "3"
                 || model.BotonPresionado == "4" || model.BotonPresionado == "5" || model.BotonPresionado == "6"
                 || model.BotonPresionado == "7" || model.BotonPresionado == "8" || model.BotonPresionado == "9"
-                || model.BotonPresionado == "-" || model.BotonPresionado == "0" )
+                || model.BotonPresionado == "0" )
                 {   
                     model.ValorActual = model.BotonPresionado;
                 }
@@ -83,6 +83,18 @@ namespace Calculadora_Web.Controllers
                     model.ValorActual = "0";
                 }
             }
+            if (model.BotonPresionado == "-" && model.ValorActual == "0")
+            {
+                if (model.OperacionCompleta != null)
+                {
+                    model.ValorActual = "0";
+                }
+                else
+                {
+                    model.ValorActual = "-";
+                }
+                
+            }
 
             //
             // --APARTADO EXCLUSIVAMENTE PARA IGUAL =
@@ -106,7 +118,7 @@ namespace Calculadora_Web.Controllers
                     if (model.ValorActual == "No se puede divir por cero")
                     {
                         model.BotonPresionado = "C";
-                        model.OperacionCompleta = "No se puede divir por cero";
+                        model.OperacionCompleta = "No se puede divir entre cero";
                     }
                     model.PrimerValor = null;
                     model.Operador = null;

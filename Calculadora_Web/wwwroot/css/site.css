@@ -108,13 +108,38 @@ body {
     background-color: #4b89ff;
     box-shadow: 0 0 15px rgba(75, 137, 255, 0.6);   
 }
-    
+
 
 
 .valorActual {
     font-size: 3rem;
     font-weight: bold;
+    overflow-x: auto; /* Permite que aparezca una barra de desplazamiento, si hay un numero muy alto*/
+    white-space: nowrap; /* Evita que el número se parta en dos líneas */   
 }
+/* Esto me lo dio la IA, no lo entiendo mucho */
+    /* 1. Definimos el tamaño de la barra (el carril) */
+    .valorActual::-webkit-scrollbar {
+        height: 8px; /* Altura de la barra horizontal */
+    }
+
+    /* 2. El fondo de la barra (el carril por donde corre) */
+    .valorActual::-webkit-scrollbar-track {
+        background: #020617; /* Azul muy oscuro, casi negro, como tu fondo */
+        border-radius: 10px;
+    }
+
+    /* 3. La parte que se mueve (el "pulgar") */
+    .valorActual::-webkit-scrollbar-thumb {
+        background: #3b82f6; /* Azul claro brillante */
+        border-radius: 10px;
+        border: 2px solid #020617; /* Crea un pequeño espacio alrededor para que se vea más fino */
+    }
+
+        /* 4. Efecto cuando pasas el mouse por encima */
+        .valorActual::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa; /* Un azul aún más claro al tocarlo */
+        }
 
 .operacionCompleta {
     color: #4B6FAF;
